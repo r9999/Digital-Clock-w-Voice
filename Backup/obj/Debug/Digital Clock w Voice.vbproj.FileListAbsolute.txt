@@ -1,0 +1,19 @@
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.exe.config
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.exe.manifest
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.application
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.exe
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.pdb
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Digital Clock.xml
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\bin\Debug\Interop.SpeechLib.dll
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock w Voice.vbprojAssemblyReference.cache
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Interop.SpeechLib.dll
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock w Voice.vbproj.ResolveComReference.cache
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital_Clock.Form1.resources
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital_Clock.Resources.resources
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock w Voice.vbproj.GenerateResource.cache
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock w Voice.vbproj.CoreCompileInputs.cache
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock.exe.manifest
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock.application
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock.exe
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock.xml
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\Backup\obj\Debug\Digital Clock.pdb
