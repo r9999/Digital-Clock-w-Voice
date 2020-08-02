@@ -8,3 +8,12 @@ C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Cl
 C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Clock.exe
 C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Clock.xml
 C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Clock.pdb
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.exe.config
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.exe.manifest
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.application
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.exe
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.pdb
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Digital Clock.xml
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\bin\Debug\Interop.SpeechLib.dll
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Clock.exe.manifest
+C:\Users\R Min\Documents\Rons VB Prog\Digital Clock w Voice\obj\Debug\Digital Clock.application

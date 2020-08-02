@@ -198,7 +198,7 @@ Public Class Form1
         'Timer1.Enabled = False
 
 
-        DoVoice()
+        ' DoVoice()
         'ISpEventSink: DoVoice()
 
 

@@ -93,74 +93,77 @@ Public Class Form1
                     'then put into
                     For i = 0 To 30
 
-                    Next
-
-                    srchdate = Date.Today.AddDays(i)
-                    datesdt = DateValue(datestr)
-                    'search input line of text for next 30 days dates
-
-                    If datesdt = srchdate Then
-
-                        Dim j As Integer
-                        Dim arraystr As String
-
-                        strDAY = datesdt.ToString("ddd")
-                        'datesdt.ToString("MMM dd ")
-                        'Debug.WriteLine("b4" + strDAY)
-                        'insrtSpaces(strDAY)
-                        'Debug.WriteLine("af" + strDAY)
-                        LineOfText = datestr + "  " + strDAY
-                        'LineOfText = datestr + "  " + datesdt.DayOfWeek.ToString + "                   a"
-                        arraystr = LineOfText.Substring(0, 10) 'was 23
-                        AllText = AllText + LineOfText.Substring(0, 10)
-                        yrstr = LineInput(1)
-                        LineOfText = LineInput(1)
-                        LineOfText = LineOfText.Substring(8)
-
-                        Debug.WriteLine("ARRAY TXT", LineOfText)
 
 
+                        srchdate = Date.Today.AddDays(i)
+                        datesdt = DateValue(datestr)
+                        'search input line of text for next 30 days dates
 
-                        Dim lineCR As String
-                        Dim lineCR2 As String
+                        If datesdt = srchdate Then
 
-                        If CType(LineOfText.IndexOf("\n"), Object) Is Nothing Then
-                            LineOfText = LineOfText
-                        ElseIf LineOfText.IndexOf("\n") >= 0 Then
-                            lineCR2 = LineInput(1)
+                            Dim j As Integer
+                            Dim arraystr As String
 
-                            If lineCR2.StartsWith(" ") Then LineOfText = LineOfText + lineCR2.Trim(" ")
-                            Do While LineOfText.IndexOf("\n") >= 0
-                                lineCR = LineOfText.Substring((0), LineOfText.IndexOf("\n"))
-                                LineOfText = LineOfText
-                                LineOfText = LineOfText.Remove(0, LineOfText.IndexOf("\n") + 2)
-                                lineCR = lineCR & vbCrLf & LineOfText
-                                LineOfText = lineCR
-                            Loop
-
-                            'lineCR = ""
-                        End If
-                        AllText = AllText & "--" & LineOfText & vbCrLf
-                        j = j + 1
-                        arraystr = arraystr + "--" + LineOfText
-                        If LineOfText.Contains("YEARLY") Then
+                            strDAY = datesdt.ToString("ddd")
+                            'datesdt.ToString("MMM dd ")
+                            'Debug.WriteLine("b4" + strDAY)
+                            'insrtSpaces(strDAY)
+                            'Debug.WriteLine("af" + strDAY)
+                            LineOfText = datestr + "  " + strDAY
+                            'LineOfText = datestr + "  " + datesdt.DayOfWeek.ToString + "                   a"
+                            arraystr = LineOfText.Substring(0, 10) 'was 23
+                            AllText = AllText + LineOfText.Substring(0, 10)
+                            yrstr = LineInput(1)
                             LineOfText = LineInput(1)
-                            Debug.WriteLine(LineOfText, "NEW INPUT")
-                            If LineOfText.Contains("SUMMARY") Then
-                                LineOfText2 = LineOfText
+                            LineOfText = LineOfText.Substring(8)
+
+                            Debug.WriteLine("ARRAY TXT", LineOfText)
 
 
-                                LineInput(i + 2)
-                                LineOfText2 = LineOfText
 
+                            Dim lineCR As String
+                            Dim lineCR2 As String
+
+                            If CType(LineOfText.IndexOf("\n"), Object) Is Nothing Then
+                                LineOfText = LineOfText
+                            ElseIf LineOfText.IndexOf("\n") >= 0 Then
+                                lineCR2 = LineInput(1)
+
+                                If lineCR2.StartsWith(" ") Then LineOfText = LineOfText + lineCR2.Trim(" ")
+                                Do While LineOfText.IndexOf("\n") >= 0
+                                    lineCR = LineOfText.Substring((0), LineOfText.IndexOf("\n"))
+                                    LineOfText = LineOfText
+                                    LineOfText = LineOfText.Remove(0, LineOfText.IndexOf("\n") + 2)
+                                    lineCR = lineCR & vbCrLf & LineOfText
+                                    LineOfText = lineCR
+                                Loop
+
+
+                                lineCR = ""
                             End If
-                            'Input(1), (i+1)=
-                            'End If
+                            AllText = AllText & "--" & LineOfText & vbCrLf
+                            j = j + 1
+                            arraystr = arraystr + "--" + LineOfText
+                            'If LineOfText.Contains("YEARLY") Then
+                            '    LineOfText = LineInput(1)
+                            '    Debug.WriteLine(LineOfText, "NEW INPUT")
+                            '    If LineOfText.Contains("SUMMARY") Then
+                            '        LineOfText2 = LineOfText
+
+
+                            '        'LineInput(i + 2)
+                            '        'LineOfText2 = LineOfText
+
+                            '    End If
+                            '    'Input(1), (i+1)=
+                            '    'End If
                             appointments(j) = arraystr
                             'Debug.WriteLine(""j.ToString)
                             Debug.WriteLine("appointments", appointments(j))
+
+                            'End If
                         End If
-                    End If
+                    Next
 
                 End If
 
@@ -255,17 +258,21 @@ Public Class Form1
         'TextBox1.Refresh()
         'Label1.Refresh()
         'Timer1.Enabled = False
-
+        'uncomment to add voice to app
         DoVoice()
-
         'ISpEventSink: DoVoice()
 
     End Sub
     Private Sub DoVoice()
         Me.Update()
         Dim Greeting As String = ""
+        ' Dim LineOfText As String = LineOfText
 
-        ' TimeOfDay = Now
+        ''unecessary code
+        ''unecessary code
+        '  Dim LineOfText As String
+        'LineOfText = LineOfText
+        '' TimeOfDay = Now
 
 
         'call Greet procedure to determine hour of greeting
@@ -279,10 +286,11 @@ Public Class Form1
         Wait(1)
         voice.Speak(strSpeak)
         Wait(1)
-        strApptSpeak = strApptSpeak.Remove(0, 12)
+        'strApptSpeak = strApptSpeak.Remove(0, 12)
         Wait(0.75)
-        ' Debug.WriteLine(strApptSpeak)
-        If (strApptSpeak.IndexOf("Dr.") > 0) Then
+        '
+        Debug.WriteLine(strApptSpeak, "apptspeak")
+        If strApptSpeak <> "" And (strApptSpeak.IndexOf("Dr.") > 0) Then
             strApptSpeak = strApptSpeak.Insert(strApptSpeak.IndexOf("Dr."), "Doctor ")
             strApptSpeak = strApptSpeak.Remove(strApptSpeak.IndexOf("Dr."), 3)
             Debug.WriteLine(strApptSpeak)
