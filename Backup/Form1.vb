@@ -13,7 +13,7 @@ Public Class Form1
     Dim datesdt As Date
     Dim strDAY As String
     Dim strSpeak As String
-    Dim strApptSpeak As String
+    Dim SpeakAppointment As String
     Dim strApptday As Date
     Shared Form1 As Object
 
@@ -42,8 +42,9 @@ Public Class Form1
         Dim AllText2 As String = "", LineOfText2 As String = ""
         TextBox1.Text = AllText2
 
-        'filename = "C:\Users\R Min\AppData\Local\Microsoft\Windows Calendar\Calendars\ztest.ics"
-        filename = "F:\ztest.ics"
+        filename = "C:\Users\R Min\AppData\Local\Microsoft\Windows Calendar\Calendars\RON.ics"
+        'filename = "F:\ztest.ics"
+        'filename = "F:\RON.ics"
 
         'Debug.WriteLine(srchdate, "srcdaate")
         'srchdate = 7 / 1 / 2020
@@ -119,7 +120,15 @@ Public Class Form1
 
                             Debug.WriteLine("ARRAY TXT", LineOfText)
 
+                            If LineOfText.Contains("YEARLY") Then
+                                LineOfText = LineInput(1)
+                                LineOfText = LineOfText.Substring(startIndex:=8)
+                                Debug.WriteLine("contains YEARLY", LineOfText)
 
+
+
+                                'GoTo SUMMARYvar
+                            End If
 
                             Dim lineCR As String
                             Dim lineCR2 As String
@@ -214,22 +223,7 @@ Public Class Form1
             If appointments(s) <> "" Then
                 LineOfText2 = (appointments(s))
                 datesdt = appointments(s).Substring(0, 10)
-                '     Debug.WriteLine(LineOfText2, "LOT2")
-                ' If LineOfText2.Contains("YEARLY") Then
-                ' Debug.WriteLine("LOT2 Contains YEARLY")
-                'Debug.WriteLine(LineOfText2.Length, "LENGTH LOT")
-                ''manupulate LOT to goto Summary in LOT 
-                'LineOfText2 = ""
-                'If LineOfText.Contains(SUMMARYvar) Then
-                'Debug.WriteLine("NEWLINE TEXT WITHOOUT YEARLY", LineOfText)
-                'LineOfText2 = LineOfText.IndexOf(10)
-                'Debug.WriteLine(LineOfText2, "NEWLINE 2")
-                'lineoftext =""
-                'End If
-                'lineoftext =""
 
-
-                ' End If
                 'daysAway = ((datesdt - Date.Today).TotalDays)
                 daysAway = ((datesdt - Date.Today).TotalDays)
                 LineOfText2 = LineOfText2.Insert(11, "--" & daysAway & " days away---")
@@ -240,8 +234,8 @@ Public Class Form1
                 appt = appt + 1
                 If appt = 1 Then
                     strApptday = datesdt
-                    strApptSpeak = LineOfText2
-                    Debug.WriteLine(strApptday + strApptSpeak)
+                    SpeakAppointment = LineOfText2
+                    Debug.WriteLine(strApptday + SpeakAppointment)
                 End If
 
                 AllText2 = AllText2 & LineOfText2 & vbCrLf
@@ -266,16 +260,7 @@ Public Class Form1
     Private Sub DoVoice()
         Me.Update()
         Dim Greeting As String = ""
-        ' Dim LineOfText As String = LineOfText
-
-        ''unecessary code
-        ''unecessary code
-        '  Dim LineOfText As String
-        'LineOfText = LineOfText
-        '' TimeOfDay = Now
-
-
-        'call Greet procedure to determine hour of greeting
+        'call greet procedure according to time of day by system clock
         Greet(TimeOfDay, Greeting)
 
 
@@ -286,34 +271,45 @@ Public Class Form1
         Wait(1)
         voice.Speak(strSpeak)
         Wait(1)
-        'strApptSpeak = strApptSpeak.Remove(0, 12)
+        SpeakAppointment = SpeakAppointment.Remove(0, 12)
         Wait(0.75)
-        '
-        Debug.WriteLine(strApptSpeak, "apptspeak")
-        If strApptSpeak <> "" And (strApptSpeak.IndexOf("Dr.") > 0) Then
-            strApptSpeak = strApptSpeak.Insert(strApptSpeak.IndexOf("Dr."), "Doctor ")
-            strApptSpeak = strApptSpeak.Remove(strApptSpeak.IndexOf("Dr."), 3)
-            Debug.WriteLine(strApptSpeak)
+
+        Debug.WriteLine(SpeakAppointment, "apptspeak")
+        If SpeakAppointment <> "" And (SpeakAppointment.IndexOf("Dr.") > 0) Then
+            SpeakAppointment = SpeakAppointment.Insert(SpeakAppointment.IndexOf("Dr."), "Doctor ")
+            SpeakAppointment = SpeakAppointment.Remove(SpeakAppointment.IndexOf("Dr."), 3)
+            Debug.WriteLine(SpeakAppointment, "here we are")
         End If
 
         If strApptday <> Date.Today Then
             voice.Speak("your next appointment is on " + strApptday.ToString("dddd, MMMM, dd"))
             Wait(0.5)
-            voice.Speak("  " + strApptSpeak)
+            voice.Speak("  " + SpeakAppointment)
         End If
 
         If strApptday = Date.Today Then
             voice.Speak("you have an appointment today " + strApptday.ToString("dddd, MMMM, dd"))
             Wait(0.5)
-            strApptSpeak = strApptSpeak.Remove(0, 16)
-            voice.Speak("  " + strApptSpeak)
+            'what is speakappointmennt without remove(0,16)
+
+            SpeakAppointment = SpeakAppointment.Remove(0, 20)
+            Wait(2)
+
+
+            Debug.WriteLine(SpeakAppointment, "next appointment")
+            SpeakAppointment = SpeakAppointment
+
+
+
+            voice.Speak("  " + SpeakAppointment)
         End If
 
-        Debug.WriteLine((strApptday.ToString("dddd, MMMM, dd") + strApptSpeak))
+        Debug.WriteLine((strApptday.ToString("dddd, MMMM, dd") + SpeakAppointment + " here's johnny"))
+
         Wait(1)
         voice.Speak("What's next Mary Katherine")
         Wait(0.5)
-        voice.Speak("You be duh WOMAN!")
+        voice.Speak("You be my BITCH")
 
     End Sub
 
@@ -338,7 +334,7 @@ Public Class Form1
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
-        Label1.Text = System.DateTime.Now.ToString("ddddd " + "---  " + "d  MMMM" + vbCrLf + "h:mm tt",
+        Label1.Text = System.DateTime.Now.ToString("ddddd " + "-- " + "d  MMMM" + vbCrLf + "h:mm tt",
                   Globalization.CultureInfo.InstalledUICulture) '.CreateSpecificCulture("en-US"))
 
 
