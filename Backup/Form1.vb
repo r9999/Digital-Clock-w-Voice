@@ -226,11 +226,11 @@ Public Class Form1
 
                 'daysAway = ((datesdt - Date.Today).TotalDays)
                 daysAway = ((datesdt - Date.Today).TotalDays)
-                LineOfText2 = LineOfText2.Insert(11, "--" & daysAway & " days away---")
+                LineOfText2 = LineOfText2.Insert(11, "..." & daysAway & " days away...")
                 'Debug.WriteLine(LineOfText2.Length)
                 LineOfText2 = LineOfText2.Remove(0, 10)
                 'datesdt.ToString("MMM dd ") 'ddd= abbrev. dayofweek
-                LineOfText2 = LineOfText2.Insert(0, datesdt.ToString("MMM dd" + "--" + " ddd"))
+                LineOfText2 = LineOfText2.Insert(0, datesdt.ToString("MMM dd" + "..." + " ddd"))
                 appt = appt + 1
                 If appt = 1 Then
                     strApptday = datesdt
@@ -334,7 +334,7 @@ Public Class Form1
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
-        Label1.Text = System.DateTime.Now.ToString("ddddd " + "-- " + "d  MMMM" + vbCrLf + "h:mm tt",
+        Label1.Text = System.DateTime.Now.ToString("ddddd " + "... " + "d  MMMM" + vbCrLf + "h:mm tt",
                   Globalization.CultureInfo.InstalledUICulture) '.CreateSpecificCulture("en-US"))
 
 
